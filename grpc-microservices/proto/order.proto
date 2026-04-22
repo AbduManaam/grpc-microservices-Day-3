@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package order;
+
+option go_package = "order-service/gen/order";
+
+message CreateOrderRequest{
+    string user_id = 1;
+    string product_id = 2;
+    string quantity = 3;
+}
+
+message CreateOrderResponse{
+    string user_id = 1;
+    string status = 2;
+}
+
+message GetOrderRequest{
+    string user_id = 1;
+}
+
+message GetOrderResponse{
+    string order_id   = 1;
+    string user_id    = 2;
+    string product_id = 3;
+    string quantity   = 4;
+    string status     = 5;
+}
+
+service OrderService {
+    rpc CreateOrder (CreateOrderRequest) returns (CreateOrderResponse);
+    rpc GetOrder (GetOrderRequest) returns (GetOrderResponse);
+}
