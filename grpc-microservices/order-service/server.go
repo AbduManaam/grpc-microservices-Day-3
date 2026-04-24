@@ -19,6 +19,7 @@ type Order struct {
   Status    string
 }
 
+//OrderServer blue print
 type OrderServer struct {
   orderpb.UnimplementedOrderServiceServer
   userClient *UserClient   // injected gRPC client

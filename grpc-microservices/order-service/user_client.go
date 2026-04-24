@@ -18,7 +18,7 @@ type UserClient struct {              //created this struct to wrap the gRPC stu
 
 
 func NewUserClient(addr string) (*UserClient, func(), error) {
-  conn, err := grpc.Dial(
+  conn, err := grpc.NewClient(
     addr,                                                      //opens a network
     grpc.WithTransportCredentials(insecure.NewCredentials()),  //“Create a connection to server using plain TCP, WITHOUT encryption (no TLS) [secure gRPC Connection]”
   )
